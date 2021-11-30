@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import moment from 'moment';
-import Link from 'next/Link';
-import { getRecentPosts, getSimilarPosts } from '../services';
+import Link from 'next/link';
+
+import { graphCMSImageLoader } from '../util';
+import { getSimilarPosts, getRecentPosts } from '../services';
 
 
 const PostWidget = ({categories, slug}) => {
@@ -24,7 +27,7 @@ const PostWidget = ({categories, slug}) => {
             {relatedPosts.map((post) => (
                 <div key={post.title} className="flex items-center w-full mb-4">
                     <div className="w-16 flex-none">
-                        <img                         
+                        <Image                          
                         alt={post.title} 
                         height="100px"
                         width="100px"
